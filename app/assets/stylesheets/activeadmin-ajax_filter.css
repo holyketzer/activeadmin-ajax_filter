@@ -1,0 +1,13 @@
+.filter_ajax_select .selectize-dropdown {
+  .item {
+    border-bottom: light-gray 1px solid;
+  }
+
+  .primary {
+    font-weight: bold;
+  }
+
+  .primary, .secondary {
+    display: block;
+  }
+}

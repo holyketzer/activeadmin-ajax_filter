@@ -1,0 +1,52 @@
+module ActiveAdmin
+  module Inputs
+    module Filters
+      class AjaxSelectInput < SelectInput
+        puts '1'
+        def pluck_column
+          klass.reorder("#{method} asc").limit(collection_limit).uniq.pluck(method)
+        end
+
+        def collection_from_association
+          super.limit(collection_limit)
+        end
+
+        def input_html_options
+          super.merge(
+            'data-limit' => collection_limit,
+            'data-value-field' => value_field,
+            'data-search-fields' => search_fields,
+            'data-ransack' => ransack,
+            'data-selected-value' => selected_value,
+          )
+        end
+
+        def ajax_data
+          options[:data] || {}
+        end
+
+        def collection_limit
+          ajax_data[:limit] || 5
+        end
+
+        def value_field
+          ajax_data[:value_field] || :id
+        end
+
+        def search_fields
+          ajax_data[:search_fields] || method
+        end
+
+        def ransack
+          ajax_data[:ransack] || "#{search_fields.join('_or_')}_cont"
+        end
+
+        def selected_value
+          if @object
+            @object.try(:send, input_name)
+          end
+        end
+      end
+    end
+  end
+end
