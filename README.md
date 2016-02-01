@@ -32,34 +32,37 @@ Or install it yourself as:
 Include this line in your JavaScript code (active_admin.js.coffee)
 
 ```coffeescript
-    #= require activeadmin-ajax_filter
+#= require activeadmin-ajax_filter
 ```
 
 Include this line in your CSS code (active_admin.scss)
 
 ```scss
-    @import "activeadmin-ajax_filter";
+@import "activeadmin-ajax_filter";
 ```
 
 Include `ActiveAdmin::AjaxFilter` module to the ActiveAdmin relation resource for which you want to support filtering and add `ajax_select` filter to main resource. For example:
 
 ```ruby
-    # Relation-resource
-    ActiveAdmin.register User do
-        include ActiveAdmin::AjaxFilter
-    ...
+# Relation-resource
+ActiveAdmin.register User do
+  include ActiveAdmin::AjaxFilter
+  # ...
+end
 
-    # Main resource
-    ActiveAdmin.register Invoice do
-        filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
+# Main resource
+ActiveAdmin.register Invoice do
+  filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
+  # ...
+end
 ```
 
 You can use next parameters in `data` hash:
 
-* limit - count of the items which will be requested by AJAX, by default `5`
-* value_field - value field for html select element, by default `id`
-* search_fields - fields by which AJAX search will be performed, required parameter 
-* ransack - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
+* `limit` - count of the items which will be requested by AJAX, by default `5`
+* `value_field` - value field for html select element, by default `id`
+* `search_fields` - fields by which AJAX search will be performed, required parameter 
+* `ransack` - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
 
 ## Development
 

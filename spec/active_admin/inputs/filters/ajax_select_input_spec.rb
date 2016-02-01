@@ -113,6 +113,20 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
     end
   end
 
+  describe '#selected_value' do
+    subject { filter.selected_value }
+
+    let(:input_name) { :user_id }
+    let(:value) { 12 }
+
+    before do
+      allow(filter).to receive(:input_name).and_return(input_name)
+      filter.instance_variable_set('@object', double(input_name => value))
+    end
+
+    it { expect(subject).to eq value }
+  end
+
   describe '#input_html_options' do
     subject { filter.input_html_options }
 
