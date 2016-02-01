@@ -1,8 +1,10 @@
 # Activeadmin::AjaxFilter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/activeadmin/ajax_filter`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem extends ActiveAdmin so that your can use filters with AJAX-powered input.
 
-TODO: Delete this and the text above, and describe your gem
+## Prerequisites
+
+This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack)
 
 ## Installation
 
@@ -22,7 +24,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include this line in your JavaScript code (active_admin.js.coffee)
+
+    #= require activeadmin-ajax_filter
+
+Include this line in your CSS code (active_admin.scss)
+
+    @import "activeadmin-ajax_filter";
+
+Include `ActiveAdmin::AjaxFilter` module to the ActiveAdmin relation resource for which you want to support filtering and add `ajax_select` filter to main resource. For example:
+
+    # Relation-resource
+    ActiveAdmin.register User do
+        include ActiveAdmin::AjaxFilter
+    ...
+
+    # Main resource
+    ActiveAdmin.register Invoice do
+        filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
+
+You can use next parameters in `data` hash:
+
+* limit - count of the items which will be requested by AJAX, by default `5`
+* value_field - value field for html select element, by default `id`
+* search_fields - fields by which AJAX search will be performed, required parameter 
+* ransack - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
 
 ## Development
 
