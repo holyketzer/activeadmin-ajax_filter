@@ -26,14 +26,19 @@ Or install it yourself as:
 
 Include this line in your JavaScript code (active_admin.js.coffee)
 
+```coffeescript
     #= require activeadmin-ajax_filter
+```
 
 Include this line in your CSS code (active_admin.scss)
 
+```scss
     @import "activeadmin-ajax_filter";
+```
 
 Include `ActiveAdmin::AjaxFilter` module to the ActiveAdmin relation resource for which you want to support filtering and add `ajax_select` filter to main resource. For example:
 
+```ruby
     # Relation-resource
     ActiveAdmin.register User do
         include ActiveAdmin::AjaxFilter
@@ -42,6 +47,7 @@ Include `ActiveAdmin::AjaxFilter` module to the ActiveAdmin relation resource fo
     # Main resource
     ActiveAdmin.register Invoice do
         filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
+```
 
 You can use next parameters in `data` hash:
 
@@ -58,7 +64,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/activeadmin-ajax_filter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/holyketzer/activeadmin-ajax_filter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License

@@ -20,10 +20,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'activeadmin', '>= 1.0.0.pre1'
-  gem.add_dependency 'coffee-rails', '>= 4.1.0'
+  gem.add_dependency 'coffee-rails', '~> 4.1', '>= 4.1.0'
   gem.add_development_dependency 'bundler', '~> 1.10'
   gem.add_development_dependency 'rake', '~> 10.0'
-  gem.add_development_dependency 'rspec', '~> 3.3.0'
-  gem.add_development_dependency 'sqlite3', '~> 1.3.11'
-  gem.add_development_dependency 'temping', '~> 3.3.0'
+  gem.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
+  gem.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.11'
+  gem.add_development_dependency 'temping', '~> 3.3', '>= 3.3.0'
 end
