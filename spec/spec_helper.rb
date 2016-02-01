@@ -14,6 +14,9 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+require 'codeclimate-test-reporter'
+
+CodeClimate::TestReporter.start
 
 require 'active_support/all'
 require 'active_model'

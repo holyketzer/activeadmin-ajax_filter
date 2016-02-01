@@ -26,4 +26,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
   gem.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.11'
   gem.add_development_dependency 'temping', '~> 3.3', '>= 3.3.0'
+  gem.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
 end
