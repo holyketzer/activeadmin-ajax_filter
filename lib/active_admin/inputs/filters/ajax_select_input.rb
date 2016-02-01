@@ -2,7 +2,8 @@ module ActiveAdmin
   module Inputs
     module Filters
       class AjaxSelectInput < SelectInput
-        puts '1'
+        DEFAULT_LIMIT = 5
+
         def pluck_column
           klass.reorder("#{method} asc").limit(collection_limit).uniq.pluck(method)
         end
@@ -26,7 +27,7 @@ module ActiveAdmin
         end
 
         def collection_limit
-          ajax_data[:limit] || 5
+          ajax_data[:limit] || DEFAULT_LIMIT
         end
 
         def value_field
@@ -34,7 +35,7 @@ module ActiveAdmin
         end
 
         def search_fields
-          ajax_data[:search_fields] || method
+          ajax_data[:search_fields] || raise(ArgumentError, 'search_fields in required')
         end
 
         def ransack

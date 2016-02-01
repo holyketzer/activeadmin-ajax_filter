@@ -1,7 +1,7 @@
 require 'active_admin'
 require 'active_admin/ajax_filter/engine'
 require 'active_admin/ajax_filter/version'
-require 'active_admin/inputs/filters/ajax_select_input.rb'
+require 'active_admin/inputs/filters/ajax_select_input'
 
 module ActiveAdmin
   module AjaxFilter
