@@ -3,6 +3,7 @@ $ ->
     select = $(select)
     valueField = select.data('value-field')
     searchFields = select.data('search-fields').split(' ')
+    ordering = select.data('ordering')
 
     loadOptions = (q, callback) ->
       $.ajax
@@ -12,6 +13,7 @@ $ ->
         data:
           q: q
           limit: select.data('limit')
+          order: ordering
         error: ->
           callback()
         success: (res) ->
@@ -21,6 +23,9 @@ $ ->
       valueField: valueField
       labelField: searchFields[0]
       searchField: searchFields
+      sortField: ordering.split(',').map (clause)->
+        c = clause.trim().split(' ')
+        { field: c[0], direction: c[1] }
       options: []
       create: false
       render:

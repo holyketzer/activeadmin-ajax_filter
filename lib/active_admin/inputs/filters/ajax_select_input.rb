@@ -17,6 +17,7 @@ module ActiveAdmin
             'data-limit' => collection_limit,
             'data-value-field' => value_field,
             'data-search-fields' => search_fields,
+            'data-ordering' => ordering,
             'data-ransack' => ransack,
             'data-selected-value' => selected_value,
           )
@@ -36,6 +37,10 @@ module ActiveAdmin
 
         def search_fields
           ajax_data[:search_fields] || raise(ArgumentError, 'search_fields in required')
+        end
+
+        def ordering
+          ajax_data[:ordering] || "#{search_fields.first} ASC"
         end
 
         def ransack

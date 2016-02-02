@@ -61,7 +61,8 @@ You can use next parameters in `data` hash:
 
 * `limit` - count of the items which will be requested by AJAX, by default `5`
 * `value_field` - value field for html select element, by default `id`
-* `search_fields` - fields by which AJAX search will be performed, required parameter 
+* `search_fields` - fields by which AJAX search will be performed, required 
+* `ordering` - sort string like `email ASC, customer_uid DESC`, by default it uses first value of `search_fields` with `ASC` direction
 * `ransack` - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
 
 ## Development
@@ -72,8 +73,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/holyketzer/activeadmin-ajax_filter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/holyketzer/activeadmin-ajax_filter. This project is intended to be a safe, welcoming space for collaboration.
 
 ## License
 

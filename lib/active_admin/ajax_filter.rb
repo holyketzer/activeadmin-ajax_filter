@@ -14,7 +14,7 @@ module ActiveAdmin
           collection_action :filter, method: :get do
             scope = collection.ransack(params[:q]).result
 
-            render json: scope.order(:created_at).limit(params[:limit] || 10)
+            render json: scope.order(params[:order]).limit(params[:limit] || 10)
           end
         end
       end

@@ -93,6 +93,26 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
     end
   end
 
+  describe '#ordering' do
+    subject { filter.ordering }
+
+    context 'no ordering in data' do
+      let(:data) { { search_fields: [:name, :email] }}
+
+      it 'should use first value from search_fields' do
+        is_expected.to eq 'name ASC'
+      end
+    end
+
+    context 'ordering in data' do
+      let(:data) { { ordering: 'email DESC' } }
+
+      it 'should use explicit value' do
+        is_expected.to eq 'email DESC'
+      end
+    end
+  end
+
   describe '#ransack' do
     subject { filter.ransack }
 
@@ -142,6 +162,7 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
       expect(subject).to include('data-limit' => filter.collection_limit)
       expect(subject).to include('data-value-field' => filter.value_field)
       expect(subject).to include('data-search-fields' => filter.search_fields)
+      expect(subject).to include('data-ordering' => filter.ordering)
       expect(subject).to include('data-ransack' => filter.ransack)
       expect(subject).to include('data-selected-value' => filter.selected_value)
     end
