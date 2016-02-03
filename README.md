@@ -62,11 +62,12 @@ end
 
 You can use next parameters in `data` hash:
 
+* `search_fields` - fields by which AJAX search will be performed, **required**
 * `limit` - count of the items which will be requested by AJAX, by default `5`
 * `value_field` - value field for html select element, by default `id`
-* `search_fields` - fields by which AJAX search will be performed, required 
 * `ordering` - sort string like `email ASC, customer_uid DESC`, by default it uses first value of `search_fields` with `ASC` direction
 * `ransack` - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
+* `url` - url for AJAX query by default is builded from field name
 
 ## Development
 

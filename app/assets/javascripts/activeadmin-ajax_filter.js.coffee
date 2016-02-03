@@ -4,10 +4,11 @@ $ ->
     valueField = select.data('value-field')
     searchFields = select.data('search-fields').split(' ')
     ordering = select.data('ordering')
+    url = select.data('url')
 
     loadOptions = (q, callback) ->
       $.ajax
-        url: 'users/filter'
+        url: url
         type: 'GET'
         dataType: 'json'
         data:

@@ -15,7 +15,7 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
   let(:template) { nil }
   let(:object) { nil }
   let(:object_name) { nil }
-  let(:method) { nil }
+  let(:method) { :device }
   let(:options) { { data: data } }
   let(:data) { nil }
 
@@ -133,6 +133,24 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
     end
   end
 
+  describe '#url' do
+    subject { filter.url }
+
+    context 'no ransack in data' do
+      it 'should build url from filter name' do
+        is_expected.to eq 'devices/filter'
+      end
+    end
+
+    context 'url in data' do
+      let(:data) { { url: '/admin/invoices/filter' } }
+
+      it 'should use explicit value' do
+        is_expected.to eq '/admin/invoices/filter'
+      end
+    end
+  end
+
   describe '#selected_value' do
     subject { filter.selected_value }
 
@@ -165,6 +183,7 @@ describe ActiveAdmin::Inputs::Filters::AjaxSelectInput do
       expect(subject).to include('data-ordering' => filter.ordering)
       expect(subject).to include('data-ransack' => filter.ransack)
       expect(subject).to include('data-selected-value' => filter.selected_value)
+      expect(subject).to include('data-url' => filter.url)
     end
   end
 

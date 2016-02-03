@@ -20,6 +20,7 @@ module ActiveAdmin
             'data-ordering' => ordering,
             'data-ransack' => ransack,
             'data-selected-value' => selected_value,
+            'data-url' => url,
           )
         end
 
@@ -45,6 +46,10 @@ module ActiveAdmin
 
         def ransack
           ajax_data[:ransack] || "#{search_fields.join('_or_')}_cont"
+        end
+
+        def url
+          ajax_data[:url] || "#{method.to_s.pluralize}/filter"
         end
 
         def selected_value
