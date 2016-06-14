@@ -54,9 +54,19 @@ ActiveAdmin.register User do
 end
 
 # Main resource
+# As a filter
 ActiveAdmin.register Invoice do
   filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
   # ...
+end
+
+# As a form input
+ActiveAdmin.register Invoice do
+  form do |f|
+    f.input :language # used by ajax_search_fields
+    f.input :user, as: :ajax_select, data: { search_fields: [:name], static_ransack: { active_eq: true }, ajax_search_fields: [:language_id] }
+    # ...
+  end
 end
 ```
 
@@ -68,6 +78,8 @@ You can use next parameters in `data` hash:
 * `ordering` - sort string like `email ASC, customer_uid DESC`, by default it uses first value of `search_fields` with `ASC` direction
 * `ransack` - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
 * `url` - url for AJAX query by default is builded from field name
+* `ajax_search_fields` - array of field names. `ajax_select` input depends on `ajax_search_fields` values: e.g. you can scope user by languages.
+* `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
 
 ## Development
 

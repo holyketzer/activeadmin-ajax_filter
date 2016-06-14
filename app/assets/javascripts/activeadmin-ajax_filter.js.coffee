@@ -1,8 +1,16 @@
 $ ->
-  $('.filter_ajax_select select').each (_, select) ->
+  $('.filter_ajax_select select, .ajax_select select').each (_, select) ->
     select = $(select)
     valueField = select.data('value-field')
     searchFields = select.data('search-fields').split(' ')
+    staticRansack = select.data('static-ransack')
+
+    ajaxFields = select.data('ajax-search-fields')
+    if ajaxFields
+      ajaxFields = ajaxFields.split(' ')
+    else
+      ajaxFields = []
+
     ordering = select.data('ordering')
     url = select.data('url')
 
@@ -19,6 +27,9 @@ $ ->
           callback()
         success: (res) ->
           callback(res)
+
+    relatedInput = (field) ->
+      $("[name*=#{field}]", select.parents('form'))
 
     select.selectize
       valueField: valueField
@@ -47,6 +58,15 @@ $ ->
         if query.length
           q = {}
           q[select.data('ransack')] = query
+
+          ajaxFields.forEach (field) ->
+            q["#{field}_eq"] = relatedInput(field).val()
+            # clear cache because it wrong with changing values of ajaxFields
+            select.loadedSearches = {}
+
+          for ransack, value of staticRansack
+            q[ransack] = value
+
           loadOptions(q, callback)
         else
           callback()
@@ -65,3 +85,7 @@ $ ->
               selectize.addOption(res[0])
               selectize.addItem(res[0][valueField])
           )
+
+        ajaxFields.forEach (field) ->
+          relatedInput(field).change ->
+            selectize.clearOptions()
