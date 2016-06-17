@@ -7,9 +7,9 @@ module ActiveAdmin
         klass.reorder("#{method} asc").limit(collection_limit).uniq.pluck(method)
       end
 
-      # def collection_from_association
-      #   super.limit(collection_limit)
-      # end
+      def collection_from_association
+        super.try(:limit, collection_limit)
+      end
 
       def input_html_options
         super.merge(
