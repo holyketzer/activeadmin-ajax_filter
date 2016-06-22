@@ -206,5 +206,15 @@ describe ActiveAdmin::Inputs::AjaxCore do
 
       it { expect(subject.count).to eq limit }
     end
+
+    describe '#collection_from_association' do
+      subject { filter.collection_from_association }
+
+      before do
+        allow_any_instance_of(ActiveAdmin::Inputs::Filters::SelectInput).to receive(:collection_from_association).and_return(Record.all)
+      end
+
+      it { expect(subject.count).to eq limit }
+    end
   end
 end
