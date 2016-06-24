@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['aemelyanov@spbtv.com']
 
   gem.summary       = 'AJAX filters for ActiveAdmin'
-  gem.description   = 'Allows to define filter by relation for ActiveAdmin resource pages using Ransacker to dynamicaly load items while user is typing symbols in filter'
+  gem.description   = 'Allows to define form inputs and filters by relation for ActiveAdmin resource pages using Ransacker to dynamicaly load items while user is typing symbols in filter'
   gem.homepage      = 'https://github.com/holyketzer/activeadmin-ajax_filter'
   gem.license       = 'MIT'
 
@@ -25,7 +25,14 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler', '~> 1.10'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
+  gem.add_development_dependency 'rspec-rails', '~> 3.3'
+  gem.add_development_dependency 'factory_girl_rails'
   gem.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.11'
   gem.add_development_dependency 'temping', '~> 3.3', '>= 3.3.0'
   gem.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
+  gem.add_development_dependency 'capybara', '~> 2.1'
+  gem.add_development_dependency 'phantomjs', '~> 1.9.8'
+  gem.add_development_dependency 'poltergeist', '~> 1.6.0'
+  gem.add_development_dependency 'database_cleaner', '~> 1.5.0'
+  gem.add_development_dependency 'launchy', '~> 2.4.3'
 end

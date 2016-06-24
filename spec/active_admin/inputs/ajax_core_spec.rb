@@ -1,7 +1,6 @@
-require 'spec_helper'
 require 'active_admin/inputs/ajax_core'
 
-describe ActiveAdmin::Inputs::AjaxCore do
+RSpec.describe ActiveAdmin::Inputs::AjaxCore do
   before(:each) do
     Temping.create(:record) do
       with_columns do |t|
