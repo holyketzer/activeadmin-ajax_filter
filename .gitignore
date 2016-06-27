@@ -1,9 +1,13 @@
 /.bundle/
 /.yardoc
-/Gemfile.lock
 /_yardoc/
 /coverage/
 /doc/
 /pkg/
 /spec/reports/
+/spec/dummy/tmp/
+/spec/dummy/public/assets
+/spec/dummy/.sass-cache
+/spec/dummy/log/*.log
 /tmp/
+/*.sqlite3
