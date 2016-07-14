@@ -7,6 +7,14 @@
 
 This gem extends ActiveAdmin so that your can use filters with AJAX-powered input.
 
+Form input
+
+<img src="https://s31.postimg.org/gvb9y7u9n/ajax_input.gif" width="360" alt="ActiveAdmin AJAX Form input"/>
+
+Filter
+
+<img src="https://s31.postimg.org/qmkboivpn/ajax_filter.gif" width="360" alt="ActiveAdmin AJAX Filter input"/>
+
 ## Prerequisites
 
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
