@@ -32,6 +32,12 @@ $ ->
       relatedInput = (field) ->
         $("[name*=#{field}]", select.parents('form'))
 
+      isCircularAjaxSearchLink = (initial_input_id, field) ->
+        input = relatedInput(field)
+        if input.length
+          (input.data('ajax-search-fields') or '').split(' ').some (ajaxField) ->
+            relatedInput(ajaxField).attr('id') == initial_input_id
+
       select.selectize
         valueField: valueField
         labelField: searchFields[0]
@@ -88,8 +94,9 @@ $ ->
             )
 
           ajaxFields.forEach (field) ->
-            relatedInput(field).change ->
-              selectize.clearOptions()
+            if !isCircularAjaxSearchLink(selectize.$input.attr('id'), field)
+              relatedInput(field).change ->
+                selectize.clearOptions()
 
   # apply ajax filter to all static inputs
   apply_filter_ajax_select()
