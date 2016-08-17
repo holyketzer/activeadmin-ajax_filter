@@ -64,7 +64,11 @@ end
 # Main resource
 # As a filter
 ActiveAdmin.register Invoice do
-  filter :user, as: :ajax_select, data: { search_fields: [:email, :customer_uid], limit: 7 }
+  filter :user, as: :ajax_select, data: { 
+    url: '/admin/users/filter', 
+    search_fields: [:email, :customer_uid], 
+    limit: 7,
+  }
   # ...
 end
 
@@ -72,7 +76,12 @@ end
 ActiveAdmin.register Invoice do
   form do |f|
     f.input :language # used by ajax_search_fields
-    f.input :user, as: :ajax_select, data: { search_fields: [:name], static_ransack: { active_eq: true }, ajax_search_fields: [:language_id] }
+    f.input :user, as: :ajax_select, data: { 
+      url: '/admin/users/filter',
+      search_fields: [:name], 
+      static_ransack: { active_eq: true }, 
+      ajax_search_fields: [:language_id],
+    }
     # ...
   end
 end
