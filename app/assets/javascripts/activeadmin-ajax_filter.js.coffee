@@ -36,7 +36,7 @@ $ ->
         input = relatedInput(field)
         if input.length
           (input.data('ajax-search-fields') or '').split(' ').some (ajaxField) ->
-            relatedInput(ajaxField).attr('id') == initial_input_id
+            ajaxField.length > 0 && relatedInput(ajaxField).attr('id') == initial_input_id
 
       select.selectize
         valueField: valueField
