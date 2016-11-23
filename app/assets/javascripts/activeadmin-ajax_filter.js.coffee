@@ -88,7 +88,7 @@ $ ->
             q[selectedRansack] = selectedValue
 
             loadOptions(q, (res)->
-              if res.length
+              if res && res.length
                 selectize.addOption(res[0])
                 selectize.addItem(res[0][valueField])
             )
