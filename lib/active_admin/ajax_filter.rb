@@ -15,8 +15,10 @@ module ActiveAdmin
         dsl.instance_eval do
           collection_action :filter, method: :get do
             scope = collection.ransack(params[:q]).result
+            scope = scope.order(params[:order]).limit(params[:limit] || 10)
+            scope = apply_collection_decorator(scope)
 
-            render text: scope.order(params[:order]).limit(params[:limit] || 10).to_json
+            render text: scope.to_json
           end
         end
       end
