@@ -18,7 +18,7 @@ module ActiveAdmin
             scope = scope.order(params[:order]).limit(params[:limit] || 10)
             scope = apply_collection_decorator(scope)
 
-            render text: scope.to_json
+            render plain: scope.to_json
           end
         end
       end
