@@ -31,8 +31,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'temping', '~> 3.3', '>= 3.3.0'
   gem.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
   gem.add_development_dependency 'capybara', '~> 2.1'
-  gem.add_development_dependency 'phantomjs', '~> 1.9.8'
-  gem.add_development_dependency 'poltergeist', '~> 1.6.0'
+  gem.add_development_dependency 'phantomjs', '~> 2.1.1'
+  gem.add_development_dependency 'poltergeist', '~> 1.10.0'
   gem.add_development_dependency 'database_cleaner', '~> 1.5.0'
   gem.add_development_dependency 'launchy', '~> 2.4.3'
 end
