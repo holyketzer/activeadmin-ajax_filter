@@ -58,7 +58,11 @@ module ActiveAdmin
       end
 
       def url
-        ajax_data[:url] || "#{method.to_s.pluralize}/filter"
+        case (url = ajax_data[:url])
+        when nil then "#{method.to_s.pluralize}/filter"
+        when Symbol then Rails.application.routes.url_helpers.send(url)
+        else url
+        end
       end
 
       def selected_value

@@ -145,11 +145,25 @@ RSpec.describe ActiveAdmin::Inputs::AjaxCore do
       end
     end
 
-    context 'url in data' do
+    context 'url is a string' do
       let(:data) { { url: '/admin/invoices/filter' } }
 
       it 'should use explicit value' do
         is_expected.to eq '/admin/invoices/filter'
+      end
+    end
+
+    context 'url is a symbol' do
+
+      let(:data) { { url: :path_helper } }
+      let(:path) { 'some_path' }
+
+      before do
+        allow(Rails.application.routes).to receive(:url_helpers).and_return(double(path_helper: path))
+      end
+
+      it 'should eval lambda' do
+        is_expected.to eq path
       end
     end
   end
