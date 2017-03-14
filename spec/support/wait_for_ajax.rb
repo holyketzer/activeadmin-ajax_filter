@@ -3,8 +3,6 @@ module WaitForAjax
     page.execute_script 'window._ajaxCalls = 0, window._ajaxCompleteCounter = function() { window._ajaxCalls += 1; }'
     page.execute_script '$(document).on("ajaxComplete", window._ajaxCompleteCounter)'
 
-    yield
-
     Timeout.timeout(Capybara.default_max_wait_time) do
       loop until finished_all_ajax_requests?(count)
     end

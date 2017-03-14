@@ -2,6 +2,7 @@ module SelectizeHelpers
   # Input text to selectize field
   def fill_in_selectize(text, selector = selectize_selector)
     find("#{selector} .selectize-input input").native.send_keys(text)
+    wait_for_ajax
   end
 
   # Get current selectize items

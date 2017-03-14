@@ -7,7 +7,11 @@ ActiveAdmin.register Item do
 
     f.inputs do
       f.input :name
-      f.input :subcategory, as: :ajax_select, data: { search_fields: [:name], url: '/admin/subcategories/filter', limit: Subcategory::AJAX_LIMIT }
+      f.input :subcategory, as: :ajax_select, data: {
+        search_fields: [:name],
+        url: '/admin/subcategories/filter',
+        limit: Subcategory::AJAX_LIMIT
+      }
     end
 
     f.actions

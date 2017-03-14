@@ -14,8 +14,7 @@ module ActiveAdmin
       def included(dsl)
         dsl.instance_eval do
           collection_action :filter, method: :get do
-            scope = collection.ransack(params[:q]).result
-            scope = scope.order(params[:order]).limit(params[:limit] || 10)
+            scope = collection.order(params[:order]).limit(params[:limit] || 10)
             scope = apply_collection_decorator(scope)
 
             render plain: scope.to_json
