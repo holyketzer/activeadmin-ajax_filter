@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activeadmin-ajax_filter (0.3.6)
+    activeadmin-ajax_filter (0.3.7)
       activeadmin (>= 1.0.0.pre1)
       coffee-rails (>= 4.1.0)
       has_scope (~> 0.6.0)

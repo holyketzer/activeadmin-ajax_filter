@@ -30,7 +30,7 @@ module ActiveAdmin
       end
 
       def collection_from_association
-        super.try(:limit, collection_limit).try(:ransack, static_ransack).result
+        super.try(:limit, collection_limit).try(:ransack, static_ransack).try(:result)
       end
 
       def value_field
