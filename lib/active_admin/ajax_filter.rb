@@ -14,10 +14,10 @@ module ActiveAdmin
       def included(dsl)
         dsl.instance_eval do
           collection_action :filter, method: :get do
-            scope = collection.order(params[:order]).limit(params[:limit] || 10)
-            scope = apply_collection_decorator(scope)
-
-            render plain: scope.to_json
+            render plain: apply_collection_decorator(
+              find_collection(except: [:pagination, :collection_decorator])
+                .order(params[:order]).limit(params[:limit] || 10),
+            ).to_json
           end
         end
       end
