@@ -11,6 +11,7 @@ module ActiveAdmin
         super.merge(
           'data-limit' => collection_limit,
           'data-value-field' => value_field,
+          'data-display-fields' => display_fields,
           'data-search-fields' => search_fields,
           'data-ajax-search-fields' => ajax_search_fields,
           'data-ordering' => ordering,
@@ -35,6 +36,10 @@ module ActiveAdmin
 
       def value_field
         ajax_data[:value_field] || :id
+      end
+
+      def display_fields
+        ajax_data[:display_fields] || search_fields[0]
       end
 
       def search_fields
