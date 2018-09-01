@@ -1,8 +1,13 @@
 $ ->
+  unique = (array) ->
+    array.filter (item, i, array) ->
+      i == array.indexOf(item)
+
   apply_filter_ajax_select = () ->
     $('.filter_ajax_select select, .ajax_select select').each (_, select) ->
       select = $(select)
       valueField = select.data('value-field')
+      display_fields = select.data('display-fields').split(' ')
       searchFields = select.data('search-fields').split(' ')
       staticRansack = select.data('static-ransack')
 
@@ -40,7 +45,7 @@ $ ->
 
       select.selectize
         valueField: valueField
-        labelField: searchFields[0]
+        labelField: display_fields[0]
         searchField: searchFields
         sortField: ordering.split(',').map (clause)->
           c = clause.trim().split(' ')
@@ -49,7 +54,7 @@ $ ->
         create: false
         render:
           option: (item, escape) ->
-            html = searchFields.map (field, index)->
+            html = unique(display_fields.concat(searchFields)).map (field, index)->
               value = escape(item[field])
 
               if index == 0
