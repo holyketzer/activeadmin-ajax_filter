@@ -17,6 +17,8 @@ Filter
 
 ## Prerequisites
 
+Minimum Ruby version `2.3`
+
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
 
 ## Installation

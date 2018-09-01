@@ -19,8 +19,8 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^exe/}) { |f| File.basename(f) }
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'activeadmin', '>= 1.0.0.pre1'
-  gem.add_dependency 'rails', '>= 4'
+  gem.add_dependency 'activeadmin', '>= 1.0'
+  gem.add_dependency 'rails', '>= 4.2'
   gem.add_dependency 'coffee-rails', '>= 4.1.0'
   gem.add_dependency 'selectize-rails', '>= 0.11.2'
   gem.add_dependency 'has_scope', '>= 0.6.0' # Force Ruby 2.1.5 support
