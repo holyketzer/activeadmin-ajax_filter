@@ -7,13 +7,7 @@
 
 This gem extends ActiveAdmin so that your can use filters with AJAX-powered input.
 
-Form input
-
-<img src="https://s31.postimg.org/gvb9y7u9n/ajax_input.gif" width="360" alt="ActiveAdmin AJAX Form input"/>
-
-Filter
-
-<img src="https://s31.postimg.org/qmkboivpn/ajax_filter.gif" width="360" alt="ActiveAdmin AJAX Filter input"/>
+<img src="https://user-images.githubusercontent.com/987021/53289159-709c5000-37a3-11e9-97d5-0e61d2759b3c.gif" width="276" alt="ActiveAdmin AJAX Filter input"/>
 
 ## Prerequisites
 
@@ -121,7 +115,7 @@ filter :user_id, as: :ajax_select, collection: [], data: {
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
