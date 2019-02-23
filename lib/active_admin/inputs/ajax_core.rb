@@ -19,6 +19,7 @@ module ActiveAdmin
           'data-static-ransack' => static_ransack,
           'data-selected-value' => selected_value,
           'data-url' => url,
+          'data-min-chars-count-to-request' => min_chars_count_to_request,
         )
       end
 
@@ -60,6 +61,10 @@ module ActiveAdmin
 
       def static_ransack
         ajax_data.fetch(:static_ransack, {}).to_json
+      end
+
+      def min_chars_count_to_request
+        ajax_data[:min_chars_count_to_request] || 1
       end
 
       def url

@@ -100,6 +100,7 @@ You can use next parameters in `data` hash:
 * `url` - url for AJAX query by default is builded from field name. For inputs you can use url helpers, but on filters level url helpers isn't available, so if you need them you can pass symbols and it will be evaluated as url path (e.g. `:filter_admin_users_path`). `String` with relative path (like `/admin/users/filter`) can be used for both inputs and filters.
 * `ajax_search_fields` - array of field names. `ajax_select` input depends on `ajax_search_fields` values: e.g. you can scope user by languages.
 * `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
+* `min_chars_count_to_request` - minimal count of chars in the input field to make an AJAX request
 
 ## Caveats 
 

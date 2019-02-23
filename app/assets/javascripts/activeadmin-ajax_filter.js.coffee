@@ -10,6 +10,7 @@ $ ->
       display_fields = select.data('display-fields').split(' ')
       searchFields = select.data('search-fields').split(' ')
       staticRansack = select.data('static-ransack')
+      minCharsCountToRequest = select.data('min-chars-count-to-request') || 1
 
       ajaxFields = select.data('ajax-search-fields')
       if ajaxFields
@@ -67,7 +68,7 @@ $ ->
             "<div class='item'>#{html.join('')}</div>"
 
         load: (query, callback) ->
-          if query.length
+          if query.length && query.length >= minCharsCountToRequest
             q = {}
             q[select.data('ransack')] = query
 
