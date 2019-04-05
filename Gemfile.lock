@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activeadmin-ajax_filter (0.4.2)
+    activeadmin-ajax_filter (0.4.3)
       activeadmin (>= 1.0)
       coffee-rails (>= 4.1.0)
       has_scope (>= 0.6.0)
@@ -58,7 +58,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arbre (1.1.1)
+    arbre (1.2.0)
       activesupport (>= 3.0.0)
     arel (6.0.4)
     builder (3.2.3)
@@ -211,7 +211,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    sass (3.7.3)
+    sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
