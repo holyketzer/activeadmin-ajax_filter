@@ -36,7 +36,7 @@ $ ->
             callback(res)
 
       relatedInput = (field) ->
-        $("[name*=#{field}]", select.parents('form'))
+        $("[name*=#{field}]", select.parents('fieldset'))
 
       isCircularAjaxSearchLink = (initial_input_id, field) ->
         input = relatedInput(field)
