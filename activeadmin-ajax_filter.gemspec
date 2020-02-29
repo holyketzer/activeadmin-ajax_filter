@@ -25,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'selectize-rails', '>= 0.12.6'
   gem.add_dependency 'has_scope', '>= 0.6.0' # Force Ruby 2.1.5 support
   gem.add_development_dependency 'bundler', '~> 1.10'
-  gem.add_development_dependency 'rake', '~> 10.0'
+  gem.add_development_dependency 'rake', '~> 13.0'
   gem.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
   gem.add_development_dependency 'rspec-rails', '~> 3.3'
   gem.add_development_dependency 'factory_girl_rails'
