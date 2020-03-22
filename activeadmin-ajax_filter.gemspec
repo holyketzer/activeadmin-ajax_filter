@@ -20,10 +20,11 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'activeadmin', '>= 1.0'
-  gem.add_dependency 'rails', '>= 4.2.11'
+  gem.add_dependency 'rails', '>= 5.0'
   gem.add_dependency 'coffee-rails', '>= 4.1.0'
   gem.add_dependency 'selectize-rails', '>= 0.12.6'
   gem.add_dependency 'has_scope', '>= 0.6.0' # Force Ruby 2.1.5 support
+  gem.add_development_dependency 'sassc-rails'
   gem.add_development_dependency 'bundler', '~> 1.10'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
@@ -36,6 +37,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'phantomjs', '~> 2.1.1'
   gem.add_development_dependency 'poltergeist', '~> 1.10.0'
   gem.add_development_dependency 'selectize-rails', '>= 0.11.2'
-  gem.add_development_dependency 'database_cleaner', '~> 1.5.0'
+  gem.add_development_dependency 'database_cleaner', '~> 1.5'
   gem.add_development_dependency 'launchy', '~> 2.4.3'
 end
