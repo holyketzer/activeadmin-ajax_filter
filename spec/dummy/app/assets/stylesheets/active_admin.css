@@ -1,6 +1,0 @@
-*= require active_admin/mixins
-*= require active_admin/base
-
-*= require selectize
-*= require selectize.default
-*= require activeadmin-ajax_filter
