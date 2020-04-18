@@ -96,6 +96,23 @@ You can use next parameters in `data` hash:
 * `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
 * `min_chars_count_to_request` - minimal count of chars in the input field to make an AJAX request
 
+Filter by belongs_to relation fields:
+```ruby
+class Patient < ApplicationRecord
+  belongs_to :user
+  # ...
+end
+
+f.input :patient, as: :ajax_select, collection: [], data: {
+  display_fields: ['id', 'user.name'],
+  search_fields: ['user.name'],
+  ordering: 'id ASC',
+  url: :filter_admin_patients_path
+}
+```
+Ordering by related fields doesn't work, e.g. this will not work: `ordering: 'user.name ASC'`
+
+
 ## Caveats 
 
 ### Ransack _cont on Integer column
