@@ -1,4 +1,6 @@
 ActiveAdmin.register Tag do
+  include ActiveAdmin::AjaxFilter
+
   permit_params :id, :name, :subcategory_id
   config.sort_order = 'id_asc'
 

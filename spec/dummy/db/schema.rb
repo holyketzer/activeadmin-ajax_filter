@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_04_18_135023) do
     t.index ["subcategory_id"], name: "index_items_on_subcategory_id"
   end
 
+  create_table "items_tags", id: false, force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["item_id", "tag_id"], name: "index_items_tags_on_item_id_and_tag_id"
+    t.index ["tag_id", "item_id"], name: "index_items_tags_on_tag_id_and_item_id"
+  end
+
   create_table "subcategories", force: :cascade do |t|
     t.string "name", null: false
     t.integer "category_id", null: false

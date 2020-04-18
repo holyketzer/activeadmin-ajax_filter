@@ -96,7 +96,8 @@ You can use next parameters in `data` hash:
 * `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
 * `min_chars_count_to_request` - minimal count of chars in the input field to make an AJAX request
 
-Filter by belongs_to relation fields:
+### Filter by belongs_to relation fields
+
 ```ruby
 class Patient < ApplicationRecord
   belongs_to :user
