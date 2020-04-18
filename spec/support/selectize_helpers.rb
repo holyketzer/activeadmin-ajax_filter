@@ -7,10 +7,14 @@ module SelectizeHelpers
 
   # Get current selectize items
   def selectize_items(selector = selectize_selector)
-    all("#{selector} .selectize-dropdown-content .item").map do |div|
+    # Wait until selectize renders with blocking find
+    select_tag = find("#{selector} select", visible: false)
+
+    all("#{selector} .selectize-dropdown-content .item", visible: false).map do |div|
       {
         value: div[:'data-value'],
         text: div.text,
+        selected: div[:class].include?('selected')
       }
     end
   end
