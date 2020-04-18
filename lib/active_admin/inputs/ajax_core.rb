@@ -40,7 +40,7 @@ module ActiveAdmin
       end
 
       def display_fields
-        ajax_data[:display_fields] || search_fields[0]
+        ajax_data[:display_fields] || search_fields.take(1)
       end
 
       def search_fields
@@ -52,11 +52,11 @@ module ActiveAdmin
       end
 
       def ordering
-        ajax_data[:ordering] || "#{search_fields.first} ASC"
+        ajax_data[:ordering] || "#{display_fields.first} ASC"
       end
 
       def ransack
-        ajax_data[:ransack] || "#{search_fields.join('_or_')}_cont"
+        ajax_data[:ransack] || "#{ransackify(search_fields).join('_or_')}_cont"
       end
 
       def static_ransack
@@ -65,6 +65,11 @@ module ActiveAdmin
 
       def min_chars_count_to_request
         ajax_data[:min_chars_count_to_request] || 1
+      end
+
+      def ransackify(field_names)
+        # Map fields refer to related tables user.name -> user_name
+        field_names.map { |f| f.to_s.sub('.', '_') }
       end
 
       def url

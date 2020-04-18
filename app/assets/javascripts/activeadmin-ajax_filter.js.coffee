@@ -30,6 +30,7 @@ $ ->
             q: q
             limit: select.data('limit')
             order: ordering
+            searchFields: searchFields
           error: ->
             callback()
           success: (res) ->
