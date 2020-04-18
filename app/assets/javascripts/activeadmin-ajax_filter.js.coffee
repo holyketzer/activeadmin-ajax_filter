@@ -88,16 +88,17 @@ $ ->
         onInitialize: ->
           selectize = this
           selectedValue = select.data('selected-value')
-          selectedRansack = "#{valueField}_eq"
+          selectedRansack = "#{valueField}_in"
 
           if selectedValue
             q = {}
-            q[selectedRansack] = selectedValue
+            q[selectedRansack] = String(selectedValue).split(' ')
 
             loadOptions(q, (res)->
               if res && res.length
-                selectize.addOption(res[0])
-                selectize.addItem(res[0][valueField])
+                for item in res
+                  selectize.addOption(item)
+                  selectize.addItem(item[valueField])
             )
 
           ajaxFields.forEach (field) ->

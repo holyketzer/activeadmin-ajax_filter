@@ -39,4 +39,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'selectize-rails', '>= 0.11.2'
   gem.add_development_dependency 'database_cleaner', '~> 1.5'
   gem.add_development_dependency 'launchy', '~> 2.4.3'
+  gem.add_development_dependency 'pry'
 end
