@@ -14,10 +14,32 @@ module ActiveAdmin
       def included(dsl)
         dsl.instance_eval do
           collection_action :filter, method: :get do
-            render plain: apply_collection_decorator(
-              find_collection(except: [:pagination, :collection_decorator])
-                .order(params[:order]).limit(params[:limit] || 10),
-            ).to_json
+            scope = find_collection(except: [:pagination, :collection_decorator])
+              .order(params[:order])
+              .limit(params[:limit] || 10)
+              .distinct
+
+            search_fields = Array(params[:searchFields])
+
+            related_table_search_fields = search_fields
+              .select { |f| f.include?('.') }
+              .map { |f| f.split('.') }
+
+            related_table_search_fields.each do |related_table, _|
+              scope = scope.preload(related_table)
+            end
+
+            res = apply_collection_decorator(scope).map do |item|
+              item_json = item.as_json
+
+              related_table_search_fields.each do |related_table, search_field|
+                item_json[related_table + '.' + search_field] = item.send(related_table).send(search_field)
+              end
+
+              item_json
+            end
+
+            render plain: res.to_json
           end
         end
       end
