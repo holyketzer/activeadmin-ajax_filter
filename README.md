@@ -122,7 +122,7 @@ Due to issue with Ransack and Postgres it's not possbile to make searches like `
 
 The way to handle it find with another predicate like:
 
-```
+```ruby
 filter :user_id, as: :ajax_select, collection: [], data: {
     url: '/admin/users/filter',
     display_fields: [:full_name, :phone],
