@@ -9,11 +9,16 @@ This gem extends ActiveAdmin so that your can use filters with AJAX-powered inpu
 
 <img src="https://user-images.githubusercontent.com/987021/53289159-709c5000-37a3-11e9-97d5-0e61d2759b3c.gif" width="276" alt="ActiveAdmin AJAX Filter input"/>
 
+
 ## Prerequisites
 
 Minimum Ruby version `2.5`
 
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
+
+Version `0.4.5` - could brake you build due to issue with `sprockets` version major update, now it's yanked, use `0.4.6` instead.
+
+If you on `sprockets >= 4` and `rails >= 5` use version `0.5.0`
 
 ## Installation
 
