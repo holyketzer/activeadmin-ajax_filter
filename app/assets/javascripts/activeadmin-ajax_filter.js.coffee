@@ -11,6 +11,7 @@ $ ->
       searchFields = select.data('search-fields').split(' ')
       staticRansack = select.data('static-ransack')
       minCharsCountToRequest = select.data('min-chars-count-to-request') || 1
+      placeholder = select.data('placeholder') || ''
 
       ajaxFields = select.data('ajax-search-fields')
       if ajaxFields
@@ -48,6 +49,7 @@ $ ->
       select.selectize
         valueField: valueField
         labelField: display_fields[0]
+        placeholder: placeholder
         searchField: searchFields
         sortField: ordering.split(',').map (clause)->
           c = clause.trim().split(' ')
