@@ -20,6 +20,8 @@ module ActiveAdmin
           'data-selected-value' => selected_value,
           'data-url' => url,
           'data-min-chars-count-to-request' => min_chars_count_to_request,
+          'data-placeholder' => placeholder,
+          'data-close-after-select' => close_after_select
         )
       end
 
@@ -65,6 +67,14 @@ module ActiveAdmin
 
       def min_chars_count_to_request
         ajax_data[:min_chars_count_to_request] || 1
+      end
+
+      def placeholder
+        ajax_data[:placeholder]
+      end
+
+      def close_after_select
+        ajax_data[:close_after_select] || false
       end
 
       def ransackify(field_names)
