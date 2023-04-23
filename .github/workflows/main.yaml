@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CODECLIMATE_REPO_TOKEN: 9c938a047651a943393f0f52bfc1d03d71fce0f19bf0f8c1265033af9b09a56e
 
     strategy:
       fail-fast: false
@@ -25,5 +27,5 @@ jobs:
           bundler-cache: true
 
       - run: bundle install --retry=3
-      - run: 'bundle exec rake dummy:prepare'
+      - run: bundle exec rake dummy:prepare
       - run: bundle exec rspec
