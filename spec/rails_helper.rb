@@ -11,6 +11,16 @@ require 'database_cleaner'
 
 Capybara.javascript_driver = :poltergeist
 
+#####
+# require 'selenium/webdriver'
+
+# Capybara.register_driver :firefox do |app|
+#   Capybara::Selenium::Driver.new(app, browser: :firefox)
+# end
+
+# Capybara.javascript_driver = :firefox
+####
+
 def reload_menus!
   ActiveAdmin.application.namespaces.each(&:reset_menu!)
 end
