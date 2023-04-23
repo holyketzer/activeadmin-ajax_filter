@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/activeadmin-ajax_filter.svg)](https://badge.fury.io/rb/activeadmin-ajax_filter)
-[![Build Status](https://travis-ci.org/holyketzer/activeadmin-ajax_filter.svg?branch=master)](https://travis-ci.org/holyketzer/activeadmin-ajax_filter)
+[![Build Status](https://github.com/holyketzer/activeadmin-ajax_filter/actions/workflows/main.yaml/badge.svg)](https://github.com/holyketzer/activeadmin-ajax_filter/actions)
 [![Code Climate](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/badges/gpa.svg)](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter)
 [![Test Coverage](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/badges/coverage.svg)](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/coverage)
 
@@ -12,7 +12,9 @@ This gem extends ActiveAdmin so that your can use filters with AJAX-powered inpu
 
 ## Prerequisites
 
-Minimum Ruby version `2.5`
+Minimum Ruby version `2.7`
+
+### Notes for `v0.5.0` (Ruby `2.5`)
 
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
 
@@ -121,7 +123,7 @@ f.input :patient, as: :ajax_select, collection: [], data: {
 Ordering by related fields doesn't work, e.g. this will not work: `ordering: 'user.name ASC'`
 
 
-## Caveats 
+## Caveats
 
 ### Ransack _cont on Integer column
 
