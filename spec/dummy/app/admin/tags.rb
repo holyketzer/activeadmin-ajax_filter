@@ -5,7 +5,7 @@ ActiveAdmin.register Tag do
   config.sort_order = 'id_asc'
 
   form do |f|
-    f.semantic_errors(*f.object.errors.keys)
+    f.semantic_errors(*f.object.errors.attribute_names)
 
     f.inputs do
       f.input :name
