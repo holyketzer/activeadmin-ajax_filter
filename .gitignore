@@ -10,5 +10,6 @@
 /spec/dummy/.sass-cache
 /spec/dummy/log/*.log
 /tmp/
+.DS_Store
 *.sqlite3
 *.gem
