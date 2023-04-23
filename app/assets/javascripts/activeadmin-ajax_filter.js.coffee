@@ -7,6 +7,7 @@ $ ->
     $('.filter_ajax_select select, .ajax_select select').each (_, select) ->
       select = $(select)
       valueField = select.data('value-field')
+      closeAfterSelect = select.data('close-after-select') || false
       display_fields = select.data('display-fields').split(' ')
       searchFields = select.data('search-fields').split(' ')
       staticRansack = select.data('static-ransack')
@@ -49,6 +50,7 @@ $ ->
       select.selectize
         valueField: valueField
         labelField: display_fields[0]
+        closeAfterSelect: closeAfterSelect
         placeholder: placeholder
         searchField: searchFields
         sortField: ordering.split(',').map (clause)->

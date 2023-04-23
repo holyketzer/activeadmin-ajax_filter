@@ -100,6 +100,8 @@ You can use next parameters in `data` hash:
 * `ajax_search_fields` - array of field names. `ajax_select` input depends on `ajax_search_fields` values: e.g. you can scope user by languages.
 * `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
 * `min_chars_count_to_request` - minimal count of chars in the input field to make an AJAX request
+* `placeholder` - input field placeholder.
+* `close_after_select` - close search results drop-down after selected a value. Default is `false`.
 
 ### Filter by belongs_to relation fields
 
