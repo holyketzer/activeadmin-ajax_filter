@@ -1,7 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/activeadmin-ajax_filter.svg)](https://badge.fury.io/rb/activeadmin-ajax_filter)
 [![Build Status](https://github.com/holyketzer/activeadmin-ajax_filter/actions/workflows/main.yaml/badge.svg)](https://github.com/holyketzer/activeadmin-ajax_filter/actions)
 [![Code Climate](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/badges/gpa.svg)](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter)
-[![Test Coverage](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/badges/coverage.svg)](https://codeclimate.com/github/holyketzer/activeadmin-ajax_filter/coverage)
 
 # Activeadmin::AjaxFilter
 
@@ -15,6 +14,7 @@ This gem extends ActiveAdmin so that your can use filters with AJAX-powered inpu
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
 
 Versions:
+* `0.7.0` - Rails 7, minimum Ruby version `2.7`
 * `0.6.0` - Rails 6, minimum Ruby version `2.7`
 * `0.5.0` - Rails 5, minimum Ruby version `2.5`
 * `0.4.5` - could break you build due to issue with `sprockets` version major update, now it's yanked, use `0.4.6` instead. If you on `sprockets >= 4` and `rails >= 5` use version `0.5.0`
@@ -37,11 +37,11 @@ Or install it yourself as:
 
 ## Usage
 
-Include this line in your JavaScript code (active_admin.js.coffee)
+Include this line in your JavaScript code (active_admin.js)
 
-```coffeescript
-#= require selectize
-#= require activeadmin-ajax_filter
+```js
+//= require selectize
+//= require activeadmin-ajax_filter
 ```
 
 Include this line in your CSS code (active_admin.scss)
